@@ -21,3 +21,4 @@ main.pdf
 *.fdb_latexmk
 *.bcf
 *.run.xml
+*.lof
