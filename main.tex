@@ -9,6 +9,8 @@
 \usepackage{blkarray}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{biblatex}
+\addbibresource{bibliography.bib} 
 
 
 \newcommand{\emailaddr}[1]{\href{mailto:#1}{\texttt{#1}}}
@@ -31,6 +33,13 @@ Ontology of bioscientific data analysis and data management
 \begin{document}
 
 \maketitle
+
+\newpage
+
+\addcontentsline{toc}{section}{Bibliography}
+%\bibliographystyle{unsrt}
+%\bibliography{bibliografia}
+\printbibliography %Prints bibliography
 
 
 \end{document}
