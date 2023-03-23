@@ -2,6 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+\usepackage{cleveref}
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{amssymb}
@@ -94,19 +95,62 @@ In summary, EDAM offers a much-needed ontology that unifies bioinformatics conce
   thereby advancing research in the field.
 
 
-
-
-
-
 \subsection{Related Work}
 
 \newpage
 
 \section{EDAM Core}
 
+EDAM includes 5 main sub-ontologies of concepts (\Cref{fig:concepts}):
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{imgs/EDAMconcepts.png}
+  \caption{EDAM concepts}
+  \label{fig:concepts}
+\end{figure}
+
 \subsection{Structure}
 
+\subsubsection{Concepts}
+\begin{itemize}
+  \item \textbf{Operation}: A function that processes a set of inputs and results in a set 
+    of outputs, or associates arguments (inputs) with values (outputs). 
+    Special cases are: 
+      i) An operation that consumes no input (has no input arguments). Such operation is either 
+      a constant function, or an operation depending only on the underlying state. 
+      ii) An operation that may modify the underlying state but has no output. 
+      iii) The singular-case operation with no input or output, that still may modify the underlying state.
+
+  \item \textbf{Data}: Information, represented in an information artefact (data record) 
+    that is ‘understandable’ by dedicated computational tools that can use 
+    the data as input or produce it as output.
+
+  \item \textbf{Identifier}: A text token, number or something else that identifies an entity, 
+    but which may not be persistent (stable) or unique (the same identifier may identify multiple
+    things).
+  
+  \item \textbf{Topic}: A category denoting a rather broad domain or field of interest, of study, 
+    application, work, data or technology. Topics have no clearly defined borders between each other.
+  
+  \item \textbf{Format}: A defined way or layout of representing and structuring data in a computer file, 
+    blob, string, message or elsewhere.
+  
+\end{itemize}
+
+\subsubsection{Relations}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{imgs/EDAMrelations.png}
+  \caption{EDAM relations}
+  \label{fig:relations}
+\end{figure}
+
+\subsubsection{Concepts types} 
+
 \subsection{How EDAM might be used}
+
 
 \newpage
 
