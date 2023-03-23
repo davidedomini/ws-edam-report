@@ -60,8 +60,6 @@ Ontology of bioscientific data analysis and data management
 
 \section{Overview}
 
-\subsection{Goals}
-
 Bioinformatics is a rapidly growing field that involves analyzing biological data using computational 
   tools and methods. With the increasing number and diversity of bioinformatics tools and data resources, 
   there is a growing need for effective ways to organize, find, understand, compare, select, use, and connect 
@@ -94,14 +92,11 @@ In summary, EDAM offers a much-needed ontology that unifies bioinformatics conce
   to greatly facilitate the search, publication, and integration of bioinformatics tools and resources, 
   thereby advancing research in the field.
 
-
-\subsection{Related Work}
-
 \newpage
 
 \section{EDAM Core}
 
-EDAM includes 5 main sub-ontologies of concepts (\Cref{fig:concepts}):
+EDAM includes five main sub-ontologies of concepts (\Cref{fig:concepts}):
 
 \begin{figure}[h!]
   \centering
@@ -109,6 +104,13 @@ EDAM includes 5 main sub-ontologies of concepts (\Cref{fig:concepts}):
   \caption{EDAM concepts}
   \label{fig:concepts}
 \end{figure}
+
+Concepts are identified by global URIs that follow the pattern 
+  \url{http://edamontology.org/<subontology>\_<localId>}, where the local IDs
+  consist of four digits. In the OBO-format variant of EDAM, concept 
+  identifiers adhere to the format \url{EDAM\_(subontology):(localId)}. 
+  For instance, the Sequence record is recognized by either 
+  \url{http://edamontology.org/data\_0849} or \url{EDAM\_data:0849}.
 
 \subsection{Structure}
 
@@ -140,12 +142,41 @@ EDAM includes 5 main sub-ontologies of concepts (\Cref{fig:concepts}):
 
 \subsubsection{Relations}
 
+EDAM mantains five types of relations between concepts, 
+  in addition to the standard generalization relation 
+  \textit{is a}.
+
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.7\textwidth]{imgs/EDAMrelations.png}
   \caption{EDAM relations}
   \label{fig:relations}
 \end{figure}
+
+\begin{itemize}
+  \item \textbf{is a}: defines a concept as a specialisation of 
+    another concept. If A is a B, then A is a specialisation (child) 
+    of B, and B is a generalisation (parent) of A (e.g., 
+    \textit{“Pairwise sequence alignment”} is a \textit{“Sequence alignment”}).
+    This relation is transitive: if A is a B and B is a C then A is a C.
+    All relations are transitive over is a: for example, if A 
+    has input B and B is a C then A has input C, 
+    and if A is a B and B has input C then A has input C.
+  \item \textbf{has topic}: defines a Data or Operation concept as being 
+    within the scope of a Topic concept (e.g., \textit{“Peptide identification”}
+    has topic \textit{“Proteomics”}).
+  \item \textbf{has input}: defines an Operation concept as reading (inputting) 
+    a Data concept (e.g., \textit{“Sequence analysis”} has input 
+    \textit{“Sequence”}).
+  \item \textbf{has output}: defines an Operation concept as writing (outputting) 
+    a Data concept.
+  \item \textbf{is identifier of}: defines that an Identifier concept identifies 
+    a Data concept (e.g. \textit{“Sequence accession”} 
+    is identifier of \textit{“Sequence”}).
+  \item \textbf{is format of}: defines that a Format concept is the format of a 
+    Data concept (e.g. \textit{“Sequence record format”} is format 
+    of \textit{“Sequence record”}).
+\end{itemize}
 
 \subsubsection{Concepts types} 
 
