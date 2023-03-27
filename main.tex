@@ -175,10 +175,6 @@ All the concepts are internally organized in two subsets (using \texttt{<oboInOw
   Tier 2 operations are placeholders. \textbf{Data placeholders} include basic technical types 
   (e.g., \textit{Score}) and broad biological types (e.g., \textit{ Phylogenetic data}).
   They mostly appear in Tier 1, rarely in Tier 2, and never below that.
-  %\textbf{Identifier placeholders} include:
-  %  i) basic type one of \texttt{Accession} or \texttt{Name} 
-  %    (all concrete identifiers are a child of one of these)
-  %  ii) 
   \textbf{Format placeholders} include basic type
     (namely: Textual format, Binary format, XML, HTML, JSON, RDF format and YAML) and 
     other types of data like Alignment format, Image format etc \dots
@@ -229,17 +225,27 @@ EDAM mantains five types of relations between concepts,
     of \textit{“Sequence record”}).
 \end{itemize}
 
-\subsubsection{Concepts types} 
-
 \subsection{How EDAM might be used}
-
+%% Maybe it is useless to have this section
 
 \newpage
 
 \section{Usecases}
 
-\subsection{Use case 1}
-\subsection{Use case 2}
+\subsection{Common Workflow Language}
+
+Common Workflow Language (CWL) \cite{cwl} \footnote{\url{https://www.commonwl.org/}} is a scientific pipeline description language used to define and manage the 
+  flow of data between software tools in a reproducible and scalable manner. CWL allows researchers to 
+  describe their analysis workflows in a standard format that can be executed on a variety of computing 
+  platforms.
+
+To facilitate interoperability and standardization, CWL uses the EDAM ontology as a standardized 
+  vocabulary for describing the inputs, outputs, and processes used in scientific workflows. 
+  EDAM provides a comprehensive set of ontology terms that cover all aspects of bioinformatics and 
+  computational biology, including data formats, software tools, algorithms, and data types. 
+  By using EDAM in conjunction with CWL, researchers can create workflows that are easily sharable, 
+  understandable, and reusable by others in the community.
+
 
 %Bibliography
 \newpage
