@@ -11,6 +11,32 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{biblatex}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{comment}
+\definecolor{lightgray}{rgb}{0.98,0.98,0.98}
+\renewcommand{\ttdefault}{pcr}
+\lstset {
+  language=xml,
+  basicstyle={\footnotesize\ttfamily},
+  numbers=none,
+  backgroundcolor=\color{lightgray},
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  keywordstyle={\bfseries\color{Blue}},
+  commentstyle={\color{Red}\textit},
+  stringstyle=\color{Magenta},
+  frame=single,
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4,
+  morekeywords={rdf,rdfs,owl, obo, oboInOwl, terms, dc, schema},
+  moredelim=*[s][\ttfamily]{:}{:} %Newly added line
+}
+
 \addbibresource{bibliography.bib} 
 
 
@@ -225,10 +251,70 @@ EDAM mantains five types of relations between concepts,
     of \textit{“Sequence record”}).
 \end{itemize}
 
-\subsection{???}
+\subsection{Inside EDAM}
+
+EDAM ontology is developed in OWL (Web Ontology Language) \footnote{\url{https://www.w3.org/OWL/}} 
+  and is available on GitHub in the project repository 
+  \footnote{\url{https://github.com/edamontology/edamontology}}. 
+  The ontology is also available on others ontologies repositories, namely:
+  \href{https://bioportal.bioontology.org/ontologies/EDAM?p=classes}{BioPortal} 
+  and \href{https://www.ebi.ac.uk/ols/ontologies/edam}{Ontology Search (OLS)}.
+  
+In this section, some parts of the ontology will be described in detail, 
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{imgs/edam-structure-graph.png}
+  \caption{EDAM structure graph}
+  \label{fig:graph}
+\end{figure}
+
+
+
+for example, 
+  the listing \ref{lst:sa-code} shows the definition of the class 
+  \texttt{Sequence annotation}.
+
+
+
+\begin{lstlisting}[caption={Sequence annotation operation definition}, captionpos=b, label={lst:sa-code}]
+<!-- http://edamontology.org/operation_0361 -->
+
+<owl:Class rdf:about="http://edamontology.org/operation_0361">
+    <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0226"/>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="http://edamontology.org/has_input"/>
+            <owl:someValuesFrom rdf:resource="http://edamontology.org/data_0849"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="http://edamontology.org/has_output"/>
+            <owl:someValuesFrom rdf:resource="http://edamontology.org/data_0849"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <created_in>beta12orEarlier</created_in>
+    <oboInOwl:hasDefinition>Annotate a molecular sequence record with terms from a controlled vocabulary.</oboInOwl:hasDefinition>
+    <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/edam#edam"/>
+    <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/edam#operations"/>
+    <rdfs:label>Sequence annotation</rdfs:label>
+</owl:Class>
+\end{lstlisting}
+
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{imgs/sequence-annotation.png}
+  \caption{Sequence annotation operation example}
+  \label{fig:graph}
+\end{figure}
+
+
 
 \newpage
-
 \section{Usecases}
 
 \subsection{EMBOSS}
