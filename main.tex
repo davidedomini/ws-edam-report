@@ -260,21 +260,66 @@ EDAM ontology is developed in OWL (Web Ontology Language) \footnote{\url{https:/
   \href{https://bioportal.bioontology.org/ontologies/EDAM?p=classes}{BioPortal} 
   and \href{https://www.ebi.ac.uk/ols/ontologies/edam}{Ontology Search (OLS)}.
   
-In this section, some parts of the ontology will be described in detail, 
+In this section, some parts of the ontology will be described in detail. Using the 
+  \href{https://edamontology.github.io/edam-browser/}{Edam Web Browser} it is possible to navigate 
+  the graph of the ontology structure,~\Cref{fig:ed-ex} shows some examples. 
 
+
+\begin{figure*}[h!]
+  \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{imgs/edam-graph-ex1.png}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{imgs/edam-graph-ex2.png}
+  \end{subfigure}
+\caption{Some examples from the EDAM Web Browser.}
+\label{fig:ed-ex}
+\end{figure*}
+
+Moreover, using OSL, it is possible to analyze a concept more in depth and see also
+  the relations with other concepts. For example,~\Cref{fig:graph} shows the graph 
+  related to the class \texttt{sequence annotation}. That graph represents many interesting
+  information:
+  \begin{itemize}
+    \item \texttt{Sequence annotation operation\_0361} is a subclass of \newline
+      \texttt{Annotation operation\_0226} (specialisation).
+    \item \texttt{Sequence annotation operation\_0361} has three subclasses, namely:
+      \begin{itemize}
+        \item \texttt{Gene annotation operation\_0362} 
+        \item \texttt{Gene functional annotation operation\_3672} 
+        \item \texttt{SNP annotation operation\_3661} 
+      \end{itemize}
+    \item \texttt{Sequence annotation operation\_0361} has one input, that is a \newline
+      \texttt{Sequence record data\_0849}.
+    \item \texttt{Sequence annotation operation\_0361} has one output, that is a \newline
+    \texttt{Sequence record data\_0849}.
+  \end{itemize}
+
+\newpage
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.9\textwidth]{imgs/edam-structure-graph.png}
-  \caption{EDAM structure graph}
+  \includegraphics[width=0.9\textwidth]{imgs/sequence-annotation.png}
+  \caption{\texttt{sequence annotation} operation example}
   \label{fig:graph}
 \end{figure}
 
+All those informations about the class \texttt{sequence annotation} are defined using OWL and RDF Schema 
+  (listing~\ref{lst:sa-code}). Analyzing the code it is possible to see that the definition of 
+  the class is composed by several elements, namely: 
+  i) the concept of specialisation is expressed by the clause \texttt{rdfs:subClassOf} 
+    linking the resource related resource \texttt{operation\_0226},
+  ii) the input and output are defined by the clause \texttt{owl:Restriction} 
+    that with the clauses \texttt{owl:onProperty} and \texttt{owl:someValuesFrom} expresses the relation with the
+    resource \texttt{data\_0849}.
 
+% rdfs subClassOf
+% owl Restriction per le proprietà
+% 
 
-for example, 
-  the listing \ref{lst:sa-code} shows the definition of the class 
-  \texttt{Sequence annotation}.
 
 
 
@@ -304,15 +349,8 @@ for example,
 \end{lstlisting}
 
 
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.9\textwidth]{imgs/sequence-annotation.png}
-  \caption{Sequence annotation operation example}
-  \label{fig:graph}
-\end{figure}
-
-
+% metti codice delle altre operation annotation per far 
+% vedere che indicano subClassOf di quella verde chiaro
 
 \newpage
 \section{Usecases}
